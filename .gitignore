@@ -4,4 +4,4 @@ vendor
 !/translations/index.php
 config.xml
 config*.xml
-tbswitfmailer-*.zip
+tbswiftmailer-*.zip
