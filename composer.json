@@ -1,0 +1,19 @@
+{
+    "name": "thirtybees/tbswiftmailer",
+    "description": "This module implements mail functionality using swiftmailer library",
+    "license": "AFL 3.0",
+    "authors": [
+        {
+            "name": "thirtybees",
+            "email": "contact@thirtybees.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "~5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "TbSwitftMailerModule\\": "src/"
+        }
+    }
+}
