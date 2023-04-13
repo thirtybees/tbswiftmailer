@@ -91,6 +91,7 @@ class TbSwiftMailer extends Module
         $helper->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
         $helper->title = $this->displayName;
         $helper->show_toolbar = false;
+        $hasPassword = !!Configuration::get('PS_MAIL_PASSWD');
 
         return $helper->generateOptions([
             'general' => [
@@ -140,10 +141,13 @@ class TbSwiftMailer extends Module
                     ],
                     'PS_MAIL_PASSWD' => [
                         'title' => $this->l('SMTP password'),
-                        'hint' => $this->l('Leave blank if not applicable.'),
                         'validation' => 'isAnything',
                         'type' => 'password',
                         'autocomplete' => false,
+                        'placeholder' => $hasPassword ? $this->l('Use saved password') : null,
+                        'hint' => $hasPassword
+                            ? $this->l('Leave this field empty to keep using saved password')
+                            : $this->l('Leave blank if not applicable.')
                     ],
                     'PS_MAIL_SMTP_ENCRYPTION' => [
                         'title' => $this->l('Encryption'),
